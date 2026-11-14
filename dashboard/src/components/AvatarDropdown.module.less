@@ -266,3 +266,48 @@
 .settingsDivider {
   margin: 16px 0 !important;
 }
+
+.settingsLinkList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 -8px;
+}
+
+.settingsLinkRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 8px;
+  border: none;
+  border-radius: var(--fn-radius-md);
+  background: transparent;
+  color: var(--fn-text-primary);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--fn-transition-fast);
+
+  &:hover {
+    background: var(--fn-bg-tertiary, rgba(0, 0, 0, 0.04));
+  }
+
+  > svg {
+    flex-shrink: 0;
+    color: var(--fn-text-tertiary);
+  }
+}
+
+.settingsLinkLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+
+  svg {
+    flex-shrink: 0;
+    color: var(--fn-text-secondary);
+  }
+}

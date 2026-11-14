@@ -18,6 +18,7 @@ import {
   LogOut,
   ChevronDown,
   ChevronUp,
+  ChevronRight,
   Settings,
   Palette,
   CircleHelp,
@@ -43,6 +44,7 @@ import PaletteSwitcher from "./PaletteSwitcher";
 import type { OctopUser } from "../api/modules/auth";
 import { useLayoutMode } from "../context/LayoutModeContext";
 import type { LayoutMode } from "../layouts/layoutModeStorage";
+import { buildAccountSettingsNavItems } from "../layouts/sidebarNav";
 import { userCan } from "../utils/permissions";
 import styles from "./AvatarDropdown.module.less";
 
@@ -85,6 +87,13 @@ export default function AvatarDropdown({
     new_password: string;
     confirm: string;
   }>();
+
+  /**
+   * Destinations that used to render as the left sidebar's standalone
+   * "设置" (Settings) group — personalization, channels, connectors, skill
+   * packages, knowledge bases. They now live inside this "个人设置" panel.
+   */
+  const accountSettingsLinks = buildAccountSettingsNavItems(user);
 
   const handleLogout = useCallback(async () => {
     setMenuOpen(false);
@@ -186,6 +195,12 @@ export default function AvatarDropdown({
 
   const closeSettings = () => setSettingsOpen(false);
   const closePassword = () => setPasswordOpen(false);
+
+  /** Navigate to a relocated settings destination and close the panel. */
+  const handleSettingsLinkClick = (path: string) => {
+    closeSettings();
+    navigate(path);
+  };
 
   const avatar = (
     <Avatar
@@ -453,6 +468,36 @@ export default function AvatarDropdown({
         </div>
         <PaletteSwitcher />
       </section>
+
+      {accountSettingsLinks.length > 0 && (
+        <>
+          <Divider className={styles.settingsDivider} />
+
+          <section className={styles.settingsSection}>
+            <div className={styles.settingsSectionHead}>
+              <h3 className={styles.settingsSectionTitle}>
+                {t("nav.settings")}
+              </h3>
+            </div>
+            <div className={styles.settingsLinkList}>
+              {accountSettingsLinks.map((item) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  className={styles.settingsLinkRow}
+                  onClick={() => handleSettingsLinkClick(item.path)}
+                >
+                  <span className={styles.settingsLinkLabel}>
+                    {item.icon}
+                    <span>{t(item.labelKey)}</span>
+                  </span>
+                  <ChevronRight size={14} strokeWidth={1.8} />
+                </button>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 

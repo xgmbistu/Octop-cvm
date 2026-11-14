@@ -71,6 +71,58 @@ export function isGroupedNavKey(key: string): boolean {
   return GROUPED_NAV_KEY_SET.has(key);
 }
 
+/**
+ * The "设置" (nav.settings) destinations — personalization, channels,
+ * connectors, skill packages, knowledge bases. These used to render as a
+ * standalone group in the left sidebar; they now surface from inside the
+ * account "个人设置" (Personal Settings) panel instead (see AvatarDropdown),
+ * so this list is exported for reuse there rather than pushed into
+ * {@link buildNavSections}'s sections.
+ */
+export function buildAccountSettingsNavItems(user: OctopUser | null): NavItem[] {
+  const items: NavItem[] = [
+    {
+      key: "personalization",
+      path: "/personalization/skills",
+      icon: <Sparkles size={iconSize} strokeWidth={iconStroke} />,
+      labelKey: "nav.personalization",
+    },
+  ];
+  if (navAllowed(user, "channels")) {
+    items.push({
+      key: "channels",
+      path: "/personalization/channels",
+      icon: <Waypoints size={iconSize} strokeWidth={iconStroke} />,
+      labelKey: "nav.channels",
+    });
+  }
+  if (navAllowed(user, "connectors")) {
+    items.push({
+      key: "connectors",
+      path: "/connectors",
+      icon: <Link2 size={iconSize} strokeWidth={iconStroke} />,
+      labelKey: "nav.connectors",
+    });
+  }
+  if (navAllowed(user, "skill-packages")) {
+    items.push({
+      key: "skill-packages",
+      path: "/skill-packages",
+      icon: <Package size={iconSize} strokeWidth={iconStroke} />,
+      labelKey: "nav.skillPackages",
+    });
+  }
+  if (navAllowed(user, "knowledge-bases")) {
+    items.push({
+      key: "knowledge-bases",
+      path: "/knowledge-bases",
+      icon: <Database size={iconSize} strokeWidth={iconStroke} />,
+      labelKey: "nav.knowledgeBases",
+    });
+  }
+  return items;
+}
+
 export function buildNavSections(
   user: OctopUser | null,
   opts?: { mobileEnabled?: boolean },
@@ -106,49 +158,10 @@ export function buildNavSections(
     },
   ];
 
-  const settingsItems: NavItem[] = [
-    {
-      key: "personalization",
-      path: "/personalization/skills",
-      icon: <Sparkles size={iconSize} strokeWidth={iconStroke} />,
-      labelKey: "nav.personalization",
-    },
-  ];
-  if (navAllowed(user, "channels")) {
-    settingsItems.push({
-      key: "channels",
-      path: "/personalization/channels",
-      icon: <Waypoints size={iconSize} strokeWidth={iconStroke} />,
-      labelKey: "nav.channels",
-    });
-  }
-  if (navAllowed(user, "connectors")) {
-    settingsItems.push({
-      key: "connectors",
-      path: "/connectors",
-      icon: <Link2 size={iconSize} strokeWidth={iconStroke} />,
-      labelKey: "nav.connectors",
-    });
-  }
-  if (navAllowed(user, "skill-packages")) {
-    settingsItems.push({
-      key: "skill-packages",
-      path: "/skill-packages",
-      icon: <Package size={iconSize} strokeWidth={iconStroke} />,
-      labelKey: "nav.skillPackages",
-    });
-  }
-  if (navAllowed(user, "knowledge-bases")) {
-    settingsItems.push({
-      key: "knowledge-bases",
-      path: "/knowledge-bases",
-      icon: <Database size={iconSize} strokeWidth={iconStroke} />,
-      labelKey: "nav.knowledgeBases",
-    });
-  }
-  if (settingsItems.length > 0) {
-    sections.push({ groupKey: "nav.settings", items: settingsItems });
-  }
+  // The "设置" group (personalization/channels/connectors/skill-packages/
+  // knowledge-bases) no longer renders as its own section in the left
+  // sidebar — those destinations now live inside the account "个人设置"
+  // panel. See buildAccountSettingsNavItems above, used by AvatarDropdown.
 
   const controlItems: NavItem[] = [];
   if (navAllowed(user, "workbench")) {
