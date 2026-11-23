@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "deploy": {
+    "command": "docker compose -f docker/docker-compose.yml up -d --build",
+    "guide": ".wally/docs/devops/test-env-deploy.md",
+    "verify": "curl -f http://localhost:${OCTOP_PORT:-8088}/api/health",
+    "rollback": ".wally/docs/devops/test-env-deploy.md#failure-and-rollback",
+    "readiness": "pending",
+    "gaps": [
+      "Target test environment (host/owner) and authorization boundary are not defined in the repository; docker/README.md only documents a local/self-hosted Compose deployment.",
+      "Effective deployed version is not pinned: docker/docker-compose.yml builds image octop:latest with no version tag or digest for effective-version verification.",
+      "Rollback target, trigger conditions and owner are not documented; only 'docker compose down' / 'up -d --build' appear in docker/README.md, with no previous-version artifact.",
+      "Credential acquisition for OCTOP_DEFAULT_PASSWORD / OCTOP_ADMIN_USERNAME / OPENAI_API_KEY / DASHSCOPE_API_KEY is not specified (env var names only; docker/README.md, docker/docker-compose.yml, docs/configuration.md)."
+    ]
+  },
+  "it": {
+    "command": "uv run pytest tests/integration -x -q",
+    "guide": ".wally/docs/integration_test/integration_test.md",
+    "success_criteria": ".wally/docs/integration_test/integration_test.md#success-criteria",
+    "readiness": "pending",
+    "gaps": [
+      "No dedicated post-deploy IT environment is configured: tests/integration boot the app in-process via tests/support/app.octop_client and do not exercise the Docker deployment.",
+      "No persisted per-case or aggregate report path (JUnit XML / report file) is configured; results only appear in pytest stdout and the GitHub Actions job log (.github/workflows/ci.yml).",
+      "Live/external-service credentials (LIVE_* secrets in .github/workflows/ci.yml) and OCTOP_TEST_DATABASE_URL for the postgresql marker are outside the local runner; access/ownership is not defined."
+    ]
+  }
+}
