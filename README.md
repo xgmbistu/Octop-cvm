@@ -88,6 +88,7 @@ Instead of an external queue or message broker, Octop routes every surface — W
 - Multi-user JWT authentication with admin role
 - First-run setup wizard (`octop init`)
 - Interactive API docs at `/api/docs` (off by default — set `"enable_api_docs": true` in `config.json` to enable)
+- Public endpoint `GET /welcome` → `200` + `application/json` + `{"message":"welcome"}` (no login required)
 
 ### Agents
 - Multiple agents per user; each has its own workspace, providers, channels, and cron

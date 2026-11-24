@@ -141,6 +141,10 @@ def build_app(server: OctopServer) -> FastAPI:
             raise HTTPException(status_code=404, detail="challenge not found")
         return PlainTextResponse(body)
 
+    @app.get("/welcome", include_in_schema=False)
+    async def welcome() -> dict[str, str]:
+        return {"message": "welcome"}
+
     from octop.api.routers import (
         acp,
         admin,
