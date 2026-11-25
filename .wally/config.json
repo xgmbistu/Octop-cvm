@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "deploy": {
+    "command": "docker compose -f docker/docker-compose.yml up -d --build",
+    "guide": ".wally/docs/devops/test-env-deploy.md",
+    "verify": "curl -f http://localhost:${OCTOP_PORT:-8088}/api/health (Dockerfile HEALTHCHECK; docker/README.md Health check); docker exec -it octop octop --version for the effective image; open http://localhost:8088 and complete first-boot admin login.",
+    "rollback": "docker compose -f docker/docker-compose.yml down, then redeploy the previous image with docker compose -f docker/docker-compose.yml up -d --build. Data persists in the ${OCTOP_DATA:-~/.octop} bind mount / octop-data volume (docker/README.md Operations, Data persistence).",
+    "readiness": "pending",
+    "gaps": [
+      "No independent test environment is defined: docker/README.md Quick start and README.md Docker (recommended for production) only describe a local / self-hosted deployment on localhost:8088. No test-environment identifier, host, owner, access, deployment scope or authorization boundary is documented.",
+      "No test-environment credential acquisition or access method: only first-boot admin defaults (OCTOP_ADMIN_USERNAME=admin, OCTOP_DEFAULT_PASSWORD=Octop123, written to /data/.octop/credential.txt by docker/docker-entrypoint.sh) and optional OPENAI_API_KEY / DASHSCOPE_API_KEY via docker/.env or the mounted ~/.octop/env are documented (.env.example). The publish workflow .github/workflows/docker-publish.yml uses DOCKERHUB_USERNAME / DOCKERHUB_TOKEN / GITHUB_TOKEN secrets, but no credentials for a test host or registry are provided.",
+      "No pre-update defect baseline, pinned deploy version or environment retention / release ownership for a test deployment: docker/docker-compose.yml always builds the mutable octop:latest tag. Static verification only; no command was executed."
+    ]
+  },
+  "it": {
+    "command": "uv run pytest tests/integration -x -q",
+    "guide": ".wally/docs/integration_test/integration_test.md",
+    "success_criteria": "pytest exits 0 with zero failures/errors for tests/integration (in-process httpx AsyncClient, FakeHarnessAgent / patched harness, isolated HOME per tests/integration/conftest.py and tests/conftest.py; no external service or real credentials needed). Authoritative CI gate: make test -> uv run pytest -n auto -m \"not live\" (Makefile:222-225), run on Linux and Windows by .github/workflows/ci.yml quality / test-windows jobs; make all is the ship bar (Makefile:201-202). The live suite (make test-live, -m live) is separate and needs LIVE_* GitHub Secrets or a gitignored repo-root .env (.env.example:41-50); it auto-skips when absent.",
+    "readiness": "ready",
+    "gaps": []
+  }
+}

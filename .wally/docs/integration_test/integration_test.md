@@ -1,0 +1,20 @@
+# Integration testing
+
+Record the project's actual runner, environment, authentication/configuration, data preparation/isolation, assertions, result criteria, cleanup, and evidence locations.
+
+For six-step tasks design cases in Plan, execute after deployment, and record individual results plus aggregate gates in the task's IT artifact. Distinguish assertion, environment, and execution errors; empty/all-skipped runs are not passes. For defect/performance A/B retain comparable before/after evidence and limits.
+
+Use the project's applicable profile extension for specialist runners. Do not invent commands, access, or successful results. Keep all six phases. If it.command and it.guide in the task execution.json are unset, automatically skip IT and disclose missing validation. Once configured, unavailable environments or failed execution block; never claim end-to-end verification.
+
+
+During initialization, populate this execution guidance from actual project files. Record sources, working directory, commands, prerequisites, result criteria and cleanup/rollback. In `.wally/config.json`, set optional `readiness: pending` and concrete `gaps` when required information is missing; ask the user and wait for the required information. Mark the phase BLOCKED, not automatically skipped; a guide path alone must not activate it. Set ready only after static verification. This is not evidence of execution. Existing configs without readiness retain legacy command/guide semantics.
+
+## Static initialization record (not executed)
+
+Sources read: Makefile (test / test-fast / test-live / all), pyproject.toml ([tool.pytest.ini_options]), conftest.py, tests/conftest.py, tests/integration/conftest.py, tests/live/conftest.py, .env.example, .github/workflows/ci.yml, AGENTS.md (Run commands).
+
+- Runner (real): `uv run pytest tests/integration -x -q` (AGENTS.md Run commands). Full / CI gate: `make test` -> `uv run pytest -n auto -m "not live"` (Makefile:222-225); `make all` = format-all + lint + typecheck + test (Makefile:201-202).
+- Environment: local, in-process. Fixtures use `octop_client` / `build_app` with `FakeHarnessAgent` and patched harness over an `httpx.AsyncClient`, with an isolated HOME and `~/.octop` per test (tests/integration/conftest.py, tests/conftest.py). No external service, database or real LLM credentials are required; `-m "not live"` excludes tests/live/.
+- Credentials: none for integration tests. Live tests (`make test-live`, `-m live`) read a gitignored repo-root `.env` or `LIVE_*` GitHub Secrets (.env.example:41-50, ci.yml live-tests) and auto-skip when unset.
+- Success criteria: pytest exits 0 with zero failures/errors; the CI `quality` and `test-windows` jobs running `make test` stay green on Linux and Windows (.github/workflows/ci.yml). The `live-tests` job is a separate credential-gated job.
+- Readiness: ready (gaps: none). Static verification only; no tests were executed.
