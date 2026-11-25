@@ -3,7 +3,7 @@
 **Status:** Accepted  
 **Date:** 2026-07-20  
 
-**Related:** [spec](../superpowers/specs/2026-07-20-postgresql-dual-backend-design.md), [plan](../superpowers/plans/2026-07-20-postgresql-dual-backend.md)
+**Related:** spec (`../superpowers/specs/2026-07-20-postgresql-dual-backend-design.md`) / plan (`../superpowers/plans/2026-07-20-postgresql-dual-backend.md`) — design drafts are not vendored in this repository; the decision is recorded in this ADR.
 
 ---
 

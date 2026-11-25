@@ -67,7 +67,7 @@ Octop is a self-hosted AI assistant platform for households and small teams. It 
 | **Web framework** | FastAPI + uvicorn |
 | **Agent runtime** | harness-agent |
 | **Gateway** | harness-gateway |
-| **Control plane DB** | SQLite (WAL) via aiosqlite |
+| **Control plane DB** | SQLite (WAL, default) or PostgreSQL (psycopg) |
 | **Frontend** | React 18 + TypeScript + Vite + Ant Design |
 | **Scheduling** | APScheduler |
 | **ACP** | agent-client-protocol |
