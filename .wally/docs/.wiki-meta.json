@@ -1,0 +1,1356 @@
+{
+  "generator": "wally-codewiki",
+  "language": "zh-CN",
+  "workspaceMode": "single-repo",
+  "generatedAt": "2026-11-25T06:48:39Z",
+  "commitHash": "1f99bda2d7fea2f00c4e1b247a4036131445f780",
+  "branch": "chore/wally-init-20261125-c103",
+  "mode": "full",
+  "pageCount": 39,
+  "skippedHumanPages": [],
+  "driftWarnings": [],
+  "pageOrder": [
+    "INDEX.md",
+    "architecture/api-service.md",
+    "architecture/async-job-worker.md",
+    "architecture/core-engine.md",
+    "architecture/data-and-adapter.md",
+    "architecture/index.md",
+    "architecture/module-dep-matrix.md",
+    "architecture/ui-and-cli.md",
+    "business/chat-turn.md",
+    "business/cron-and-proactive.md",
+    "business/domain-models/index.md",
+    "business/index.md",
+    "business/setup-and-auth.md",
+    "contracts/api-reference.md",
+    "contracts/api/admin-and-setup.md",
+    "contracts/api/chat-and-agents.md",
+    "contracts/api/connectors-and-channels.md",
+    "contracts/api/devices-and-media.md",
+    "contracts/api/knowledge-and-skills.md",
+    "contracts/configuration.md",
+    "contracts/error-codes.md",
+    "integrations/downstream/connectors-mcp.md",
+    "integrations/downstream/device-bridges.md",
+    "integrations/downstream/im-channels.md",
+    "integrations/downstream/knowledge-rag.md",
+    "integrations/downstream/llm-providers.md",
+    "integrations/downstream/storage-backends.md",
+    "integrations/downstream/voice-and-media.md",
+    "integrations/index.md",
+    "integrations/topology-and-mapping.md",
+    "operations/boundary.md",
+    "operations/deployment-and-runtime.md",
+    "operations/dev-and-test.md",
+    "operations/pitfalls-and-adr.md",
+    "operations/runbook-and-observability.md",
+    "overview/business-architecture.md",
+    "overview/callchain-panorama.md",
+    "overview/glossary.md",
+    "overview/system-architecture.md"
+  ],
+  "fileToDocs": {
+    "src/octop/api/app.py": [
+      "architecture/api-service.md",
+      "architecture/module-dep-matrix.md",
+      "contracts/api-reference.md",
+      "contracts/error-codes.md",
+      "overview/system-architecture.md"
+    ],
+    "src/octop/api/deps.py": [
+      "architecture/api-service.md",
+      "business/setup-and-auth.md",
+      "contracts/api-reference.md"
+    ],
+    "src/octop/api/middleware/jwt_auth.py": [
+      "architecture/api-service.md",
+      "business/setup-and-auth.md",
+      "contracts/api-reference.md",
+      "contracts/error-codes.md"
+    ],
+    "src/octop/api/middleware/setup_lockdown.py": [
+      "architecture/api-service.md",
+      "business/setup-and-auth.md"
+    ],
+    "src/octop/api/openapi_meta.py": [
+      "architecture/api-service.md",
+      "contracts/api-reference.md"
+    ],
+    "src/octop/api/routers/chat/ws.py": [
+      "architecture/api-service.md",
+      "business/chat-turn.md",
+      "contracts/api-reference.md",
+      "contracts/api/chat-and-agents.md",
+      "overview/callchain-panorama.md"
+    ],
+    "src/octop/infra/cron/manager.py": [
+      "architecture/async-job-worker.md",
+      "business/cron-and-proactive.md",
+      "business/index.md",
+      "overview/business-architecture.md"
+    ],
+    "src/octop/infra/cron/job.py": [
+      "architecture/async-job-worker.md",
+      "business/cron-and-proactive.md",
+      "overview/callchain-panorama.md"
+    ],
+    "src/octop/infra/cron/trigger.py": [
+      "architecture/async-job-worker.md",
+      "business/cron-and-proactive.md"
+    ],
+    "src/octop/infra/proactive/scheduler.py": [
+      "architecture/async-job-worker.md",
+      "business/cron-and-proactive.md"
+    ],
+    "src/octop/infra/backup/auto.py": [
+      "architecture/async-job-worker.md",
+      "business/index.md"
+    ],
+    "src/octop/infra/setup/tls/renewal.py": [
+      "architecture/async-job-worker.md"
+    ],
+    "src/octop/infra/knowledge/jobs.py": [
+      "architecture/async-job-worker.md",
+      "business/index.md",
+      "integrations/downstream/knowledge-rag.md"
+    ],
+    "src/octop/infra/agents/manager.py": [
+      "architecture/core-engine.md",
+      "architecture/module-dep-matrix.md",
+      "business/chat-turn.md",
+      "integrations/downstream/llm-providers.md",
+      "operations/boundary.md",
+      "operations/pitfalls-and-adr.md",
+      "overview/business-architecture.md",
+      "overview/callchain-panorama.md",
+      "overview/system-architecture.md"
+    ],
+    "src/octop/infra/gateway/gateway.py": [
+      "architecture/core-engine.md",
+      "integrations/downstream/im-channels.md"
+    ],
+    "src/octop/infra/gateway/process/processor.py": [
+      "architecture/core-engine.md",
+      "architecture/module-dep-matrix.md",
+      "business/chat-turn.md",
+      "business/index.md",
+      "overview/business-architecture.md",
+      "overview/callchain-panorama.md"
+    ],
+    "src/octop/infra/gateway/process/harness_request.py": [
+      "architecture/core-engine.md",
+      "business/chat-turn.md",
+      "integrations/topology-and-mapping.md"
+    ],
+    "src/octop/infra/gateway/ws/ws_hub.py": [
+      "architecture/core-engine.md"
+    ],
+    "src/octop/infra/agents/tool_catalog.py": [
+      "architecture/core-engine.md"
+    ],
+    "src/octop/infra/agents/runtime_limits.py": [
+      "architecture/core-engine.md"
+    ],
+    "src/octop/infra/db/pool.py": [
+      "architecture/data-and-adapter.md",
+      "business/domain-models/index.md"
+    ],
+    "src/octop/infra/db/factory.py": [
+      "architecture/data-and-adapter.md"
+    ],
+    "src/octop/infra/db/migrate.py": [
+      "architecture/data-and-adapter.md",
+      "operations/pitfalls-and-adr.md"
+    ],
+    "src/octop/infra/db/services.py": [
+      "architecture/data-and-adapter.md",
+      "architecture/module-dep-matrix.md",
+      "business/domain-models/index.md",
+      "overview/system-architecture.md"
+    ],
+    "src/octop/infra/backend/adapter.py": [
+      "architecture/data-and-adapter.md",
+      "integrations/downstream/storage-backends.md",
+      "integrations/index.md"
+    ],
+    "src/octop/infra/connectors/mcp_tool_cache.py": [
+      "architecture/data-and-adapter.md",
+      "integrations/downstream/connectors-mcp.md"
+    ],
+    "src/octop/api": [
+      "architecture/index.md"
+    ],
+    "src/octop/cli": [
+      "architecture/index.md"
+    ],
+    "src/octop/infra": [
+      "architecture/index.md"
+    ],
+    "src/octop/i18n": [
+      "architecture/index.md"
+    ],
+    "src/octop/config.py": [
+      "architecture/index.md",
+      "contracts/configuration.md",
+      "overview/system-architecture.md"
+    ],
+    "dashboard": [
+      "architecture/index.md"
+    ],
+    "tests": [
+      "architecture/index.md"
+    ],
+    "plugins": [
+      "architecture/index.md"
+    ],
+    "docker": [
+      "architecture/index.md"
+    ],
+    "fnos": [
+      "architecture/index.md"
+    ],
+    "scripts": [
+      "architecture/index.md"
+    ],
+    "docs": [
+      "architecture/index.md"
+    ],
+    "src/octop/launch.py": [
+      "architecture/module-dep-matrix.md",
+      "operations/deployment-and-runtime.md",
+      "overview/system-architecture.md"
+    ],
+    "src/octop/infra/server.py": [
+      "architecture/module-dep-matrix.md",
+      "contracts/configuration.md",
+      "operations/runbook-and-observability.md",
+      "overview/business-architecture.md",
+      "overview/system-architecture.md"
+    ],
+    "src/octop/cli/main.py": [
+      "architecture/ui-and-cli.md"
+    ],
+    "src/octop/cli/registry.py": [
+      "architecture/ui-and-cli.md"
+    ],
+    "src/octop/cli/support/ctx.py": [
+      "architecture/ui-and-cli.md"
+    ],
+    "dashboard/src/api/request.ts": [
+      "architecture/ui-and-cli.md"
+    ],
+    "dashboard/src/routes/index.tsx": [
+      "architecture/ui-and-cli.md"
+    ],
+    "dashboard/vite.config.ts": [
+      "architecture/ui-and-cli.md"
+    ],
+    "src/octop/i18n/loader.py": [
+      "architecture/ui-and-cli.md",
+      "overview/glossary.md"
+    ],
+    "src/octop/api/routers/chat/turn.py": [
+      "business/chat-turn.md",
+      "integrations/topology-and-mapping.md"
+    ],
+    "src/octop/api/routers/chat/sse.py": [
+      "business/chat-turn.md"
+    ],
+    "src/octop/infra/gateway/process/stream_project.py": [
+      "business/chat-turn.md"
+    ],
+    "src/octop/infra/gateway/process/message_keys.py": [
+      "business/chat-turn.md",
+      "integrations/topology-and-mapping.md",
+      "operations/pitfalls-and-adr.md",
+      "overview/glossary.md"
+    ],
+    "src/octop/infra/cron/delivery.py": [
+      "business/cron-and-proactive.md",
+      "integrations/topology-and-mapping.md"
+    ],
+    "src/octop/infra/cron/task_type.py": [
+      "business/cron-and-proactive.md",
+      "overview/glossary.md"
+    ],
+    "src/octop/infra/proactive/service.py": [
+      "business/cron-and-proactive.md"
+    ],
+    "src/octop/infra/proactive/picker.py": [
+      "business/cron-and-proactive.md"
+    ],
+    "src/octop/infra/db/migrations/001_initial.sql": [
+      "business/domain-models/index.md"
+    ],
+    "src/octop/infra/db/migrations/013_connector_instances.sql": [
+      "business/domain-models/index.md"
+    ],
+    "src/octop/infra/db/repos/agents.py": [
+      "business/domain-models/index.md",
+      "overview/business-architecture.md"
+    ],
+    "src/octop/infra/db/repos/threads.py": [
+      "business/domain-models/index.md"
+    ],
+    "src/octop/infra/db/repos/trajectory_events.py": [
+      "business/domain-models/index.md"
+    ],
+    "src/octop/api/routers/setup.py": [
+      "business/index.md",
+      "business/setup-and-auth.md",
+      "contracts/api/admin-and-setup.md",
+      "overview/business-architecture.md",
+      "overview/callchain-panorama.md"
+    ],
+    "src/octop/infra/connectors/builder.py": [
+      "business/index.md",
+      "integrations/downstream/connectors-mcp.md"
+    ],
+    "src/octop/infra/mobile/tools.py": [
+      "business/index.md",
+      "integrations/downstream/device-bridges.md"
+    ],
+    "src/octop/infra/setup/wizard_tokens.py": [
+      "business/setup-and-auth.md"
+    ],
+    "src/octop/infra/setup/password_file.py": [
+      "business/setup-and-auth.md"
+    ],
+    "src/octop/infra/db/rebind.py": [
+      "business/setup-and-auth.md"
+    ],
+    "src/octop/api/routers/auth_oidc.py": [
+      "business/setup-and-auth.md",
+      "contracts/api/admin-and-setup.md"
+    ],
+    "src/octop/api/routers/internal_mcp.py": [
+      "contracts/api-reference.md",
+      "contracts/api/connectors-and-channels.md"
+    ],
+    "src/octop/api/routers/auth.py": [
+      "contracts/api/admin-and-setup.md"
+    ],
+    "src/octop/api/routers/providers.py": [
+      "contracts/api/admin-and-setup.md"
+    ],
+    "src/octop/api/routers/backup.py": [
+      "contracts/api/admin-and-setup.md"
+    ],
+    "src/octop/api/routers/cron.py": [
+      "contracts/api/admin-and-setup.md"
+    ],
+    "src/octop/api/routers/agents.py": [
+      "contracts/api/chat-and-agents.md"
+    ],
+    "src/octop/api/routers/chat/history.py": [
+      "contracts/api/chat-and-agents.md"
+    ],
+    "src/octop/api/routers/chat/trajectory.py": [
+      "contracts/api/chat-and-agents.md"
+    ],
+    "src/octop/api/routers/workspace.py": [
+      "contracts/api/chat-and-agents.md"
+    ],
+    "src/octop/api/routers/memory.py": [
+      "contracts/api/chat-and-agents.md"
+    ],
+    "src/octop/api/routers/connectors.py": [
+      "contracts/api/connectors-and-channels.md",
+      "operations/pitfalls-and-adr.md"
+    ],
+    "src/octop/api/routers/channels.py": [
+      "contracts/api/connectors-and-channels.md"
+    ],
+    "src/octop/api/routers/subagents.py": [
+      "contracts/api/connectors-and-channels.md"
+    ],
+    "src/octop/api/routers/browser/stream.py": [
+      "contracts/api/devices-and-media.md"
+    ],
+    "src/octop/api/routers/desktop/stream.py": [
+      "contracts/api/devices-and-media.md"
+    ],
+    "src/octop/api/routers/mobile/stream.py": [
+      "contracts/api/devices-and-media.md",
+      "integrations/downstream/device-bridges.md"
+    ],
+    "src/octop/api/routers/voice.py": [
+      "contracts/api/devices-and-media.md"
+    ],
+    "src/octop/api/routers/filesystem.py": [
+      "contracts/api/devices-and-media.md"
+    ],
+    "src/octop/api/routers/storage_backends.py": [
+      "contracts/api/devices-and-media.md"
+    ],
+    "src/octop/api/routers/knowledge_bases.py": [
+      "contracts/api/knowledge-and-skills.md"
+    ],
+    "src/octop/api/routers/skills.py": [
+      "contracts/api/knowledge-and-skills.md"
+    ],
+    "src/octop/api/routers/skill_packages.py": [
+      "contracts/api/knowledge-and-skills.md"
+    ],
+    "src/octop/api/routers/experts.py": [
+      "contracts/api/knowledge-and-skills.md"
+    ],
+    "src/octop/api/routers/plugins.py": [
+      "contracts/api/knowledge-and-skills.md"
+    ],
+    "src/octop/api/routers/mbti.py": [
+      "contracts/api/knowledge-and-skills.md"
+    ],
+    "src/octop/infra/utils/env_file.py": [
+      "contracts/configuration.md"
+    ],
+    "src/octop/infra/utils/paths.py": [
+      "contracts/configuration.md",
+      "operations/deployment-and-runtime.md"
+    ],
+    "src/octop/infra/setup/tls/listeners.py": [
+      "contracts/configuration.md"
+    ],
+    ".env.example": [
+      "contracts/configuration.md"
+    ],
+    "src/octop/infra/errors.py": [
+      "contracts/error-codes.md",
+      "overview/glossary.md"
+    ],
+    "src/octop/i18n/domains/errors.py": [
+      "contracts/error-codes.md"
+    ],
+    "src/octop/infra/utils/bwrap.py": [
+      "contracts/error-codes.md"
+    ],
+    "src/octop/infra/utils/docker_env.py": [
+      "contracts/error-codes.md"
+    ],
+    "src/octop/infra/connectors/gateway/protocol.py": [
+      "integrations/downstream/connectors-mcp.md",
+      "integrations/index.md",
+      "integrations/topology-and-mapping.md",
+      "operations/boundary.md",
+      "overview/callchain-panorama.md"
+    ],
+    "src/octop/infra/connectors/gateway/registry.py": [
+      "integrations/downstream/connectors-mcp.md"
+    ],
+    "src/octop/infra/connectors/gateway/langchain.py": [
+      "integrations/downstream/connectors-mcp.md",
+      "integrations/topology-and-mapping.md"
+    ],
+    "src/octop/infra/connectors/oauth/mcp.py": [
+      "integrations/downstream/connectors-mcp.md"
+    ],
+    "src/octop/infra/connectors/gateway/cli_install.py": [
+      "integrations/downstream/connectors-mcp.md"
+    ],
+    "src/octop/infra/mobile/adb.py": [
+      "integrations/downstream/device-bridges.md",
+      "integrations/index.md"
+    ],
+    "src/octop/infra/mobile/docker_install.py": [
+      "integrations/downstream/device-bridges.md"
+    ],
+    "src/octop/infra/desktop/capture.py": [
+      "integrations/downstream/device-bridges.md"
+    ],
+    "src/octop/infra/desktop/input.py": [
+      "integrations/downstream/device-bridges.md"
+    ],
+    "src/octop/infra/browser/setup.py": [
+      "integrations/downstream/device-bridges.md"
+    ],
+    "src/octop/infra/gateway/bot_creators/feishu_bot_creator.py": [
+      "integrations/downstream/im-channels.md",
+      "integrations/index.md"
+    ],
+    "src/octop/infra/gateway/bot_creators/feishu_runner.py": [
+      "integrations/downstream/im-channels.md"
+    ],
+    "src/octop/infra/gateway/bot_creators/yuanbao_bot_creator.py": [
+      "integrations/downstream/im-channels.md"
+    ],
+    "src/octop/infra/gateway/channels/dingtalk_registration.py": [
+      "integrations/downstream/im-channels.md"
+    ],
+    "src/octop/infra/gateway/channels/qr_bind.py": [
+      "integrations/downstream/im-channels.md"
+    ],
+    "src/octop/infra/knowledge/embed.py": [
+      "integrations/downstream/knowledge-rag.md",
+      "integrations/index.md"
+    ],
+    "src/octop/infra/knowledge/index.py": [
+      "integrations/downstream/knowledge-rag.md"
+    ],
+    "src/octop/infra/knowledge/retrieve.py": [
+      "integrations/downstream/knowledge-rag.md"
+    ],
+    "src/octop/infra/knowledge/parse.py": [
+      "integrations/downstream/knowledge-rag.md"
+    ],
+    "src/octop/infra/knowledge/ocr.py": [
+      "integrations/downstream/knowledge-rag.md"
+    ],
+    "src/octop/infra/knowledge/chunk.py": [
+      "integrations/downstream/knowledge-rag.md"
+    ],
+    "src/octop/infra/agents/providers/store.py": [
+      "integrations/downstream/llm-providers.md",
+      "integrations/index.md"
+    ],
+    "src/octop/infra/agents/providers/harness_factory.py": [
+      "integrations/downstream/llm-providers.md"
+    ],
+    "src/octop/infra/agents/providers/resolved.py": [
+      "integrations/downstream/llm-providers.md"
+    ],
+    "src/octop/infra/agents/providers/probe.py": [
+      "integrations/downstream/llm-providers.md"
+    ],
+    "src/octop/infra/agents/providers/reasoning.py": [
+      "integrations/downstream/llm-providers.md"
+    ],
+    "src/octop/infra/backend/docker_spec.py": [
+      "integrations/downstream/storage-backends.md"
+    ],
+    "src/octop/infra/backend/probe.py": [
+      "integrations/downstream/storage-backends.md",
+      "operations/boundary.md"
+    ],
+    "src/octop/infra/backend/resolver.py": [
+      "integrations/downstream/storage-backends.md"
+    ],
+    "src/octop/infra/backend/browse.py": [
+      "integrations/downstream/storage-backends.md"
+    ],
+    "src/octop/infra/backend/opensandbox_deps.py": [
+      "integrations/downstream/storage-backends.md"
+    ],
+    "src/octop/infra/voice/manager.py": [
+      "integrations/downstream/voice-and-media.md"
+    ],
+    "src/octop/infra/voice/adapters.py": [
+      "integrations/downstream/voice-and-media.md",
+      "integrations/index.md"
+    ],
+    "src/octop/infra/voice/tencent_sign.py": [
+      "integrations/downstream/voice-and-media.md"
+    ],
+    "src/octop/infra/voice/presets.py": [
+      "integrations/downstream/voice-and-media.md"
+    ],
+    "src/octop/infra/agents/media_generation.py": [
+      "integrations/downstream/voice-and-media.md"
+    ],
+    "pyproject.toml": [
+      "operations/boundary.md",
+      "operations/dev-and-test.md"
+    ],
+    "tests/support/fakes.py": [
+      "operations/boundary.md",
+      "operations/dev-and-test.md"
+    ],
+    ".wally/config.json": [
+      "operations/boundary.md"
+    ],
+    "docker/Dockerfile": [
+      "operations/deployment-and-runtime.md"
+    ],
+    "docker/docker-compose.yml": [
+      "operations/deployment-and-runtime.md"
+    ],
+    "docker/docker-entrypoint.sh": [
+      "operations/deployment-and-runtime.md"
+    ],
+    "Makefile": [
+      "operations/deployment-and-runtime.md",
+      "operations/dev-and-test.md",
+      "operations/pitfalls-and-adr.md"
+    ],
+    "docs/configuration.md": [
+      "operations/deployment-and-runtime.md"
+    ],
+    "fnos/README.md": [
+      "operations/deployment-and-runtime.md"
+    ],
+    "conftest.py": [
+      "operations/dev-and-test.md"
+    ],
+    "tests/conftest.py": [
+      "operations/dev-and-test.md"
+    ],
+    "tests/integration/conftest.py": [
+      "operations/dev-and-test.md"
+    ],
+    ".github/workflows/ci.yml": [
+      "operations/dev-and-test.md"
+    ],
+    "docs/adr/001-single-process-model.md": [
+      "operations/pitfalls-and-adr.md"
+    ],
+    "docs/adr/002-database-backends.md": [
+      "operations/pitfalls-and-adr.md"
+    ],
+    "src/octop/api/routers/health.py": [
+      "operations/runbook-and-observability.md"
+    ],
+    "src/octop/infra/metrics.py": [
+      "operations/runbook-and-observability.md"
+    ],
+    "src/octop/infra/db/repos/audit.py": [
+      "operations/runbook-and-observability.md"
+    ],
+    "src/octop/infra/trajectory/service.py": [
+      "operations/runbook-and-observability.md"
+    ],
+    "src/octop/api/routers/admin.py": [
+      "operations/runbook-and-observability.md"
+    ],
+    "src/octop/infra/utils/locale.py": [
+      "overview/glossary.md"
+    ],
+    "src/octop/infra/gateway/threads.py": [
+      "overview/glossary.md"
+    ]
+  },
+  "repoDeps": [],
+  "moduleTree": [
+    {
+      "page": "architecture/api-service.md",
+      "sourcePaths": [
+        "src/octop/api/app.py",
+        "src/octop/api/deps.py",
+        "src/octop/api/middleware/jwt_auth.py",
+        "src/octop/api/middleware/setup_lockdown.py",
+        "src/octop/api/openapi_meta.py",
+        "src/octop/api/routers/chat/ws.py"
+      ],
+      "dependsOn": [
+        "contracts/api-reference.md",
+        "architecture/core-engine.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "architecture/index.md"
+      ]
+    },
+    {
+      "page": "architecture/async-job-worker.md",
+      "sourcePaths": [
+        "src/octop/infra/cron/manager.py",
+        "src/octop/infra/cron/job.py",
+        "src/octop/infra/cron/trigger.py",
+        "src/octop/infra/proactive/scheduler.py",
+        "src/octop/infra/backup/auto.py",
+        "src/octop/infra/setup/tls/renewal.py",
+        "src/octop/infra/knowledge/jobs.py"
+      ],
+      "dependsOn": [
+        "business/cron-and-proactive.md",
+        "operations/runbook-and-observability.md"
+      ],
+      "usedBy": [
+        "architecture/index.md",
+        "overview/callchain-panorama.md"
+      ]
+    },
+    {
+      "page": "architecture/core-engine.md",
+      "sourcePaths": [
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/gateway/gateway.py",
+        "src/octop/infra/gateway/process/processor.py",
+        "src/octop/infra/gateway/process/harness_request.py",
+        "src/octop/infra/gateway/ws/ws_hub.py",
+        "src/octop/infra/agents/tool_catalog.py",
+        "src/octop/infra/agents/runtime_limits.py"
+      ],
+      "dependsOn": [
+        "business/chat-turn.md",
+        "integrations/downstream/llm-providers.md"
+      ],
+      "usedBy": [
+        "architecture/index.md",
+        "architecture/api-service.md"
+      ]
+    },
+    {
+      "page": "architecture/data-and-adapter.md",
+      "sourcePaths": [
+        "src/octop/infra/db/pool.py",
+        "src/octop/infra/db/factory.py",
+        "src/octop/infra/db/migrate.py",
+        "src/octop/infra/db/services.py",
+        "src/octop/infra/backend/adapter.py",
+        "src/octop/infra/connectors/mcp_tool_cache.py"
+      ],
+      "dependsOn": [
+        "integrations/downstream/storage-backends.md",
+        "operations/pitfalls-and-adr.md"
+      ],
+      "usedBy": [
+        "architecture/index.md",
+        "business/domain-models/index.md"
+      ]
+    },
+    {
+      "page": "architecture/index.md",
+      "sourcePaths": [
+        "src/octop/api",
+        "src/octop/cli",
+        "src/octop/infra",
+        "src/octop/i18n",
+        "src/octop/config.py",
+        "dashboard",
+        "tests",
+        "plugins",
+        "docker",
+        "fnos",
+        "scripts",
+        "docs"
+      ],
+      "dependsOn": [
+        "architecture/module-dep-matrix.md",
+        "architecture/api-service.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "overview/system-architecture.md"
+      ]
+    },
+    {
+      "page": "architecture/module-dep-matrix.md",
+      "sourcePaths": [
+        "src/octop/launch.py",
+        "src/octop/infra/server.py",
+        "src/octop/api/app.py",
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/gateway/process/processor.py",
+        "src/octop/infra/db/services.py"
+      ],
+      "dependsOn": [
+        "operations/pitfalls-and-adr.md"
+      ],
+      "usedBy": [
+        "architecture/index.md"
+      ]
+    },
+    {
+      "page": "architecture/ui-and-cli.md",
+      "sourcePaths": [
+        "src/octop/cli/main.py",
+        "src/octop/cli/registry.py",
+        "src/octop/cli/support/ctx.py",
+        "dashboard/src/api/request.ts",
+        "dashboard/src/routes/index.tsx",
+        "dashboard/vite.config.ts",
+        "src/octop/i18n/loader.py"
+      ],
+      "dependsOn": [
+        "contracts/api-reference.md",
+        "operations/deployment-and-runtime.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "architecture/index.md"
+      ]
+    },
+    {
+      "page": "business/chat-turn.md",
+      "sourcePaths": [
+        "src/octop/api/routers/chat/ws.py",
+        "src/octop/api/routers/chat/turn.py",
+        "src/octop/api/routers/chat/sse.py",
+        "src/octop/infra/gateway/process/processor.py",
+        "src/octop/infra/gateway/process/harness_request.py",
+        "src/octop/infra/gateway/process/stream_project.py",
+        "src/octop/infra/gateway/process/message_keys.py",
+        "src/octop/infra/agents/manager.py"
+      ],
+      "dependsOn": [
+        "integrations/downstream/llm-providers.md",
+        "integrations/downstream/knowledge-rag.md"
+      ],
+      "usedBy": [
+        "business/index.md",
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "business/cron-and-proactive.md",
+      "sourcePaths": [
+        "src/octop/infra/cron/manager.py",
+        "src/octop/infra/cron/job.py",
+        "src/octop/infra/cron/trigger.py",
+        "src/octop/infra/cron/delivery.py",
+        "src/octop/infra/cron/task_type.py",
+        "src/octop/infra/proactive/scheduler.py",
+        "src/octop/infra/proactive/service.py",
+        "src/octop/infra/proactive/picker.py"
+      ],
+      "dependsOn": [
+        "business/domain-models/index.md",
+        "integrations/downstream/llm-providers.md"
+      ],
+      "usedBy": [
+        "business/index.md",
+        "overview/business-architecture.md"
+      ]
+    },
+    {
+      "page": "business/domain-models/index.md",
+      "sourcePaths": [
+        "src/octop/infra/db/migrations/001_initial.sql",
+        "src/octop/infra/db/migrations/013_connector_instances.sql",
+        "src/octop/infra/db/services.py",
+        "src/octop/infra/db/pool.py",
+        "src/octop/infra/db/repos/agents.py",
+        "src/octop/infra/db/repos/threads.py",
+        "src/octop/infra/db/repos/trajectory_events.py"
+      ],
+      "dependsOn": [
+        "architecture/data-and-adapter.md",
+        "contracts/configuration.md"
+      ],
+      "usedBy": [
+        "business/index.md",
+        "overview/glossary.md"
+      ]
+    },
+    {
+      "page": "business/index.md",
+      "sourcePaths": [
+        "src/octop/infra/gateway/process/processor.py",
+        "src/octop/infra/cron/manager.py",
+        "src/octop/api/routers/setup.py",
+        "src/octop/infra/knowledge/jobs.py",
+        "src/octop/infra/backup/auto.py",
+        "src/octop/infra/connectors/builder.py",
+        "src/octop/infra/mobile/tools.py"
+      ],
+      "dependsOn": [
+        "business/domain-models/index.md",
+        "contracts/api-reference.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "overview/business-architecture.md"
+      ]
+    },
+    {
+      "page": "business/setup-and-auth.md",
+      "sourcePaths": [
+        "src/octop/api/routers/setup.py",
+        "src/octop/api/deps.py",
+        "src/octop/api/middleware/jwt_auth.py",
+        "src/octop/api/middleware/setup_lockdown.py",
+        "src/octop/infra/setup/wizard_tokens.py",
+        "src/octop/infra/setup/password_file.py",
+        "src/octop/infra/db/rebind.py",
+        "src/octop/api/routers/auth_oidc.py"
+      ],
+      "dependsOn": [
+        "business/domain-models/index.md",
+        "operations/deployment-and-runtime.md"
+      ],
+      "usedBy": [
+        "business/index.md",
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "contracts/api-reference.md",
+      "sourcePaths": [
+        "src/octop/api/app.py",
+        "src/octop/api/deps.py",
+        "src/octop/api/openapi_meta.py",
+        "src/octop/api/middleware/jwt_auth.py",
+        "src/octop/api/routers/chat/ws.py",
+        "src/octop/api/routers/internal_mcp.py"
+      ],
+      "dependsOn": [
+        "contracts/api/chat-and-agents.md",
+        "integrations/topology-and-mapping.md"
+      ],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    },
+    {
+      "page": "contracts/api/admin-and-setup.md",
+      "sourcePaths": [
+        "src/octop/api/routers/setup.py",
+        "src/octop/api/routers/auth.py",
+        "src/octop/api/routers/auth_oidc.py",
+        "src/octop/api/routers/providers.py",
+        "src/octop/api/routers/backup.py",
+        "src/octop/api/routers/cron.py"
+      ],
+      "dependsOn": [
+        "business/setup-and-auth.md",
+        "business/cron-and-proactive.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "contracts/api/chat-and-agents.md",
+      "sourcePaths": [
+        "src/octop/api/routers/agents.py",
+        "src/octop/api/routers/chat/ws.py",
+        "src/octop/api/routers/chat/history.py",
+        "src/octop/api/routers/chat/trajectory.py",
+        "src/octop/api/routers/workspace.py",
+        "src/octop/api/routers/memory.py"
+      ],
+      "dependsOn": [
+        "business/chat-turn.md",
+        "business/domain-models/index.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "contracts/api/connectors-and-channels.md",
+      "sourcePaths": [
+        "src/octop/api/routers/connectors.py",
+        "src/octop/api/routers/channels.py",
+        "src/octop/api/routers/internal_mcp.py",
+        "src/octop/api/routers/subagents.py"
+      ],
+      "dependsOn": [
+        "integrations/downstream/connectors-mcp.md",
+        "integrations/downstream/im-channels.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "contracts/api/devices-and-media.md",
+      "sourcePaths": [
+        "src/octop/api/routers/browser/stream.py",
+        "src/octop/api/routers/desktop/stream.py",
+        "src/octop/api/routers/mobile/stream.py",
+        "src/octop/api/routers/voice.py",
+        "src/octop/api/routers/filesystem.py",
+        "src/octop/api/routers/storage_backends.py"
+      ],
+      "dependsOn": [
+        "integrations/downstream/device-bridges.md",
+        "integrations/downstream/voice-and-media.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "contracts/api/knowledge-and-skills.md",
+      "sourcePaths": [
+        "src/octop/api/routers/knowledge_bases.py",
+        "src/octop/api/routers/skills.py",
+        "src/octop/api/routers/skill_packages.py",
+        "src/octop/api/routers/experts.py",
+        "src/octop/api/routers/plugins.py",
+        "src/octop/api/routers/mbti.py"
+      ],
+      "dependsOn": [
+        "integrations/downstream/knowledge-rag.md",
+        "architecture/ui-and-cli.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "contracts/configuration.md",
+      "sourcePaths": [
+        "src/octop/config.py",
+        "src/octop/infra/server.py",
+        "src/octop/infra/utils/env_file.py",
+        "src/octop/infra/utils/paths.py",
+        "src/octop/infra/setup/tls/listeners.py",
+        ".env.example"
+      ],
+      "dependsOn": [
+        "operations/deployment-and-runtime.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "overview/system-architecture.md"
+      ]
+    },
+    {
+      "page": "contracts/error-codes.md",
+      "sourcePaths": [
+        "src/octop/infra/errors.py",
+        "src/octop/api/app.py",
+        "src/octop/api/middleware/jwt_auth.py",
+        "src/octop/i18n/domains/errors.py",
+        "src/octop/infra/utils/bwrap.py",
+        "src/octop/infra/utils/docker_env.py"
+      ],
+      "dependsOn": [
+        "operations/runbook-and-observability.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md",
+        "integrations/index.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/connectors-mcp.md",
+      "sourcePaths": [
+        "src/octop/infra/connectors/gateway/protocol.py",
+        "src/octop/infra/connectors/gateway/registry.py",
+        "src/octop/infra/connectors/gateway/langchain.py",
+        "src/octop/infra/connectors/builder.py",
+        "src/octop/infra/connectors/oauth/mcp.py",
+        "src/octop/infra/connectors/gateway/cli_install.py",
+        "src/octop/infra/connectors/mcp_tool_cache.py"
+      ],
+      "dependsOn": [
+        "contracts/error-codes.md",
+        "business/chat-turn.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "integrations/topology-and-mapping.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/device-bridges.md",
+      "sourcePaths": [
+        "src/octop/infra/mobile/adb.py",
+        "src/octop/infra/mobile/tools.py",
+        "src/octop/infra/mobile/docker_install.py",
+        "src/octop/infra/desktop/capture.py",
+        "src/octop/infra/desktop/input.py",
+        "src/octop/infra/browser/setup.py",
+        "src/octop/api/routers/mobile/stream.py"
+      ],
+      "dependsOn": [
+        "contracts/error-codes.md",
+        "operations/deployment-and-runtime.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "architecture/ui-and-cli.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/im-channels.md",
+      "sourcePaths": [
+        "src/octop/infra/gateway/gateway.py",
+        "src/octop/infra/gateway/bot_creators/feishu_bot_creator.py",
+        "src/octop/infra/gateway/bot_creators/feishu_runner.py",
+        "src/octop/infra/gateway/bot_creators/yuanbao_bot_creator.py",
+        "src/octop/infra/gateway/channels/dingtalk_registration.py",
+        "src/octop/infra/gateway/channels/qr_bind.py"
+      ],
+      "dependsOn": [
+        "contracts/error-codes.md",
+        "architecture/api-service.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "business/chat-turn.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/knowledge-rag.md",
+      "sourcePaths": [
+        "src/octop/infra/knowledge/embed.py",
+        "src/octop/infra/knowledge/index.py",
+        "src/octop/infra/knowledge/retrieve.py",
+        "src/octop/infra/knowledge/jobs.py",
+        "src/octop/infra/knowledge/parse.py",
+        "src/octop/infra/knowledge/ocr.py",
+        "src/octop/infra/knowledge/chunk.py"
+      ],
+      "dependsOn": [
+        "business/domain-models/index.md",
+        "contracts/error-codes.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "business/chat-turn.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/llm-providers.md",
+      "sourcePaths": [
+        "src/octop/infra/agents/providers/store.py",
+        "src/octop/infra/agents/providers/harness_factory.py",
+        "src/octop/infra/agents/providers/resolved.py",
+        "src/octop/infra/agents/providers/probe.py",
+        "src/octop/infra/agents/providers/reasoning.py",
+        "src/octop/infra/agents/manager.py"
+      ],
+      "dependsOn": [
+        "business/chat-turn.md",
+        "architecture/core-engine.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "integrations/topology-and-mapping.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/storage-backends.md",
+      "sourcePaths": [
+        "src/octop/infra/backend/adapter.py",
+        "src/octop/infra/backend/docker_spec.py",
+        "src/octop/infra/backend/probe.py",
+        "src/octop/infra/backend/resolver.py",
+        "src/octop/infra/backend/browse.py",
+        "src/octop/infra/backend/opensandbox_deps.py"
+      ],
+      "dependsOn": [
+        "contracts/configuration.md",
+        "operations/boundary.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "architecture/core-engine.md"
+      ]
+    },
+    {
+      "page": "integrations/downstream/voice-and-media.md",
+      "sourcePaths": [
+        "src/octop/infra/voice/manager.py",
+        "src/octop/infra/voice/adapters.py",
+        "src/octop/infra/voice/tencent_sign.py",
+        "src/octop/infra/voice/presets.py",
+        "src/octop/infra/agents/media_generation.py"
+      ],
+      "dependsOn": [
+        "contracts/error-codes.md",
+        "business/chat-turn.md"
+      ],
+      "usedBy": [
+        "integrations/index.md",
+        "contracts/api-reference.md"
+      ]
+    },
+    {
+      "page": "integrations/index.md",
+      "sourcePaths": [
+        "src/octop/infra/connectors/gateway/protocol.py",
+        "src/octop/infra/agents/providers/store.py",
+        "src/octop/infra/voice/adapters.py",
+        "src/octop/infra/backend/adapter.py",
+        "src/octop/infra/knowledge/embed.py",
+        "src/octop/infra/mobile/adb.py",
+        "src/octop/infra/gateway/bot_creators/feishu_bot_creator.py"
+      ],
+      "dependsOn": [
+        "integrations/topology-and-mapping.md",
+        "integrations/downstream/connectors-mcp.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "overview/system-architecture.md"
+      ]
+    },
+    {
+      "page": "integrations/topology-and-mapping.md",
+      "sourcePaths": [
+        "src/octop/api/routers/chat/turn.py",
+        "src/octop/infra/gateway/process/harness_request.py",
+        "src/octop/infra/gateway/process/message_keys.py",
+        "src/octop/infra/connectors/gateway/protocol.py",
+        "src/octop/infra/connectors/gateway/langchain.py",
+        "src/octop/infra/cron/delivery.py"
+      ],
+      "dependsOn": [
+        "integrations/downstream/llm-providers.md",
+        "integrations/downstream/connectors-mcp.md"
+      ],
+      "usedBy": [
+        "contracts/api-reference.md",
+        "integrations/index.md"
+      ]
+    },
+    {
+      "page": "operations/boundary.md",
+      "sourcePaths": [
+        "pyproject.toml",
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/connectors/gateway/protocol.py",
+        "src/octop/infra/backend/probe.py",
+        "tests/support/fakes.py",
+        ".wally/config.json"
+      ],
+      "dependsOn": [],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    },
+    {
+      "page": "operations/deployment-and-runtime.md",
+      "sourcePaths": [
+        "docker/Dockerfile",
+        "docker/docker-compose.yml",
+        "docker/docker-entrypoint.sh",
+        "Makefile",
+        "docs/configuration.md",
+        "src/octop/infra/utils/paths.py",
+        "src/octop/launch.py",
+        "fnos/README.md"
+      ],
+      "dependsOn": [
+        "operations/runbook-and-observability.md"
+      ],
+      "usedBy": [
+        "INDEX.md",
+        "contracts/configuration.md"
+      ]
+    },
+    {
+      "page": "operations/dev-and-test.md",
+      "sourcePaths": [
+        "Makefile",
+        "pyproject.toml",
+        "conftest.py",
+        "tests/conftest.py",
+        "tests/integration/conftest.py",
+        "tests/support/fakes.py",
+        ".github/workflows/ci.yml"
+      ],
+      "dependsOn": [],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    },
+    {
+      "page": "operations/pitfalls-and-adr.md",
+      "sourcePaths": [
+        "docs/adr/001-single-process-model.md",
+        "docs/adr/002-database-backends.md",
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/gateway/process/message_keys.py",
+        "src/octop/api/routers/connectors.py",
+        "Makefile",
+        "src/octop/infra/db/migrate.py"
+      ],
+      "dependsOn": [],
+      "usedBy": [
+        "INDEX.md",
+        "overview/system-architecture.md"
+      ]
+    },
+    {
+      "page": "operations/runbook-and-observability.md",
+      "sourcePaths": [
+        "src/octop/api/routers/health.py",
+        "src/octop/infra/metrics.py",
+        "src/octop/infra/server.py",
+        "src/octop/infra/db/repos/audit.py",
+        "src/octop/infra/trajectory/service.py",
+        "src/octop/api/routers/admin.py"
+      ],
+      "dependsOn": [],
+      "usedBy": [
+        "contracts/error-codes.md"
+      ]
+    },
+    {
+      "page": "overview/business-architecture.md",
+      "sourcePaths": [
+        "src/octop/infra/server.py",
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/gateway/process/processor.py",
+        "src/octop/infra/cron/manager.py",
+        "src/octop/api/routers/setup.py",
+        "src/octop/infra/db/repos/agents.py"
+      ],
+      "dependsOn": [
+        "business/index.md",
+        "business/domain-models/index.md"
+      ],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    },
+    {
+      "page": "overview/callchain-panorama.md",
+      "sourcePaths": [
+        "src/octop/api/routers/chat/ws.py",
+        "src/octop/infra/gateway/process/processor.py",
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/cron/job.py",
+        "src/octop/infra/connectors/gateway/protocol.py",
+        "src/octop/api/routers/setup.py"
+      ],
+      "dependsOn": [
+        "integrations/topology-and-mapping.md",
+        "contracts/error-codes.md"
+      ],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    },
+    {
+      "page": "overview/glossary.md",
+      "sourcePaths": [
+        "src/octop/i18n/loader.py",
+        "src/octop/infra/utils/locale.py",
+        "src/octop/infra/gateway/threads.py",
+        "src/octop/infra/gateway/process/message_keys.py",
+        "src/octop/infra/cron/task_type.py",
+        "src/octop/infra/errors.py"
+      ],
+      "dependsOn": [
+        "business/domain-models/index.md",
+        "contracts/error-codes.md",
+        "contracts/configuration.md"
+      ],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    },
+    {
+      "page": "overview/system-architecture.md",
+      "sourcePaths": [
+        "src/octop/launch.py",
+        "src/octop/infra/server.py",
+        "src/octop/api/app.py",
+        "src/octop/infra/agents/manager.py",
+        "src/octop/infra/db/services.py",
+        "src/octop/config.py"
+      ],
+      "dependsOn": [
+        "architecture/index.md",
+        "integrations/index.md"
+      ],
+      "usedBy": [
+        "INDEX.md"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": true,
+    "unresolvedRefs": 0,
+    "truncatedPages": 0,
+    "duplicatePairs": 0,
+    "inboundEndpoints": 417,
+    "downstreamContractPages": 7,
+    "coreEnvVars": 48,
+    "mermaidDiagrams": 10,
+    "gates": {
+      "G1_header_human_and_meta": "PASS",
+      "G2_coverage_and_contracts": "PASS",
+      "G3_closure_and_anchoring": "PASS",
+      "G4_depth_dedup_and_lang": "PASS",
+      "G5_mermaid_safety": "PASS"
+    }
+  }
+}
