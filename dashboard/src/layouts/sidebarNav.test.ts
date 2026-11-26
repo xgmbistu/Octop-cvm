@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   SIDEBAR_GROUPED_NAV_KEYS,
+  buildAccountSettingsNavItems,
   buildNavSections,
   isGroupedNavKey,
 } from "./sidebarNav";
@@ -11,6 +12,13 @@ const adminUser = {
   username: "admin",
   role: "admin",
   permissions: ["*"],
+} as OctopUser;
+
+const plainUser = {
+  id: 2,
+  username: "member",
+  role: "user",
+  permissions: [],
 } as OctopUser;
 
 describe("sidebarNav", () => {
@@ -41,5 +49,38 @@ describe("sidebarNav", () => {
     for (const key of flatKeys) {
       expect(isGroupedNavKey(key)).toBe(false);
     }
+  });
+
+  it("no longer renders a standalone nav.settings sidebar group", () => {
+    const sections = buildNavSections(adminUser, { mobileEnabled: true });
+    expect(sections.some((s) => s.groupKey === "nav.settings")).toBe(false);
+    // Those destinations should not leak into any other sidebar section either.
+    const relocatedKeys = new Set([
+      "personalization",
+      "channels",
+      "connectors",
+      "skill-packages",
+      "knowledge-bases",
+    ]);
+    const allRenderedKeys = sections.flatMap((s) => s.items.map((i) => i.key));
+    for (const key of allRenderedKeys) {
+      expect(relocatedKeys.has(key)).toBe(false);
+    }
+  });
+
+  it("exposes the relocated settings destinations for the account panel", () => {
+    const adminLinks = buildAccountSettingsNavItems(adminUser);
+    const adminKeys = adminLinks.map((i) => i.key);
+    expect(adminKeys).toEqual([
+      "personalization",
+      "channels",
+      "connectors",
+      "skill-packages",
+      "knowledge-bases",
+    ]);
+
+    // personalization always shows; the rest follow per-user permissions.
+    const plainLinks = buildAccountSettingsNavItems(plainUser);
+    expect(plainLinks.map((i) => i.key)).toEqual(["personalization"]);
   });
 });
