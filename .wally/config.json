@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "deploy": {
+    "command": "docker compose -f docker/docker-compose.yml up -d --build",
+    "guide": ".wally/docs/devops/test-env-deploy.md",
+    "verify": "curl -f http://localhost:8088/api/health (GET /api/health; also the Dockerfile HEALTHCHECK); docker exec -it octop octop --version confirms the effective version; open http://localhost:8088 and sign in with the first-boot credentials",
+    "rollback": "docker compose -f docker/docker-compose.yml down (keeps the mounted ~/.octop data volume) and redeploy a known-good image with docker compose -f docker/docker-compose.yml up -d --build; inspect with docker logs -f octop",
+    "readiness": "ready",
+    "gaps": []
+  },
+  "it": {
+    "command": "make test",
+    "guide": ".wally/docs/integration_test/integration_test.md",
+    "success_criteria": "make test (uv run pytest -n auto -m \"not live\") exits 0 with every unit and tests/integration case passing; the CI quality gate (make install, make lint, make typecheck, make test) stays green on Linux and Windows; live-marked tests stay excluded when real credentials are absent; an empty or all-skipped run is not a pass",
+    "readiness": "ready",
+    "gaps": []
+  }
+}
